@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of Hip-Hop and Rap</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Baloo 2', sans-serif;
+            background-color: #38B6FF; /* Background color */
+            color: black;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        #yellow-box {
+            width: 200px;
+            height: 200px;
+            background-color: #FED405; /* Yellow color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            border: 5px solid black; /* Black edging */
+            transition: transform 0.1s ease-in-out;
+        }
+
+        #question-answer {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Keyframes for the bounce animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Class to trigger the bounce animation */
+        .animate-bounce {
+            animation: bounce 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="yellow-box">THE RISE OF HIP-HOP & RAP</div>
+
+    <div id="question-answer"></div>
+
+    <script>
+        const yellowBox = document.getElementById("yellow-box");
+        const questionAnswerDiv = document.getElementById("question-answer");
+
+        // Array of questions and answers about The Rise of Hip-Hop and Rap
+        const hipHopRapQuestions = [
+            { question: "Who is considered one of the pioneers of hip-hop and founded the group Grandmaster Flash and the Furious Five?", answer: "Grandmaster Flash" },
+            { question: "What 1982 song by Afrika Bambaataa is considered one of the first hip-hop tracks?", answer: "Planet Rock" },
+            { question: "Which 1992 Dr. Dre album is credited with defining the G-funk genre of rap?", answer: "The Chronic" },
+            { question: "What is the name of the 1994 album by Nas that is widely regarded as a classic in hip-hop?", answer: "Illmatic" },
+            { question: "Which rapper's 1996 album 'All Eyez on Me' was the first double album in hip-hop?", answer: "2Pac" },
+            { question: "What 1998 album by OutKast is known for its influence on Southern hip-hop?", answer: "Aquemini" },
+            { question: "Which rapper, known for his alter ego Slim Shady, released 'The Slim Shady LP' in 1999?", answer: "Eminem" },
+            { question: "What 2003 Jay-Z album is considered a major influence in hip-hop for its production and lyrics?", answer: "The Black Album" },
+            { question: "Which 2004 Kanye West album is known for its innovative production and influence on hip-hop?", answer: "The College Dropout" },
+            { question: "What is the name of the 2006 album by T.I. that features hits like 'What You Know'?", answer: "King" },
+            { question: "Which 2007 album by Lil Wayne was a major commercial success and includes the hit 'Lollipop'?", answer: "Tha Carter III" },
+            { question: "What 2010 album by Drake marked his rise to mainstream success with hits like 'Over'?", answer: "Thank Me Later" },
+            { question: "Which rapper released the 2011 album 'Watch the Throne' in collaboration with Jay-Z?", answer: "Kanye West" },
+            { question: "What 2015 album by Kendrick Lamar won the Pulitzer Prize for Music?", answer: "To Pimp a Butterfly" },
+            { question: "Which rapper's 2018 album 'Scorpion' debuted at number one on the Billboard 200 chart?", answer: "Drake" },
+            { question: "What 2019 album by Tyler, the Creator is known for its unique production and lyrical content?", answer: "Igor" },
+            { question: "Which rapper released the critically acclaimed 2020 album 'RTJ4'?", answer: "Run the Jewels" },
+            { question: "What is the name of the 2021 album by J. Cole that features the hit 'MIDDLE CHILD'?", answer: "The Off-Season" },
+            { question: "Which 2000 album by Eminem included hits like 'The Real Slim Shady'?", answer: "The Marshall Mathers LP" },
+            { question: "What 2002 album by Nelly became a major commercial success with hits like 'Hot in Herre'?", answer: "Nellyville" },
+            { question: "Which 2005 album by 50 Cent included hits like 'Candy Shop'?", answer: "The Massacre" },
+            { question: "What 2012 album by Kendrick Lamar features the hit 'Swimming Pools (Drank)'?", answer: "good kid, m.A.A.d city" },
+            { question: "Which rapper's 2001 album 'Still D.R.E.' is known for its iconic beat produced by Dr. Dre?", answer: "Dr. Dre" },
+            { question: "What 2014 album by Iggy Azalea features the hit single 'Fancy'?", answer: "The New Classic" },
+            { question: "Which 2016 album by Chance the Rapper was released for free and won Grammy Awards?", answer: "Coloring Book" },
+            { question: "What 2008 album by Lil Wayne features the hit single 'A Milli'?", answer: "Tha Carter III" },
+            { question: "Which 2019 album by Cardi B features hits like 'Money' and 'Please Me'?", answer: "Invasion of Privacy" },
+            { question: "What 2021 album by Lil Nas X features hits like 'Montero (Call Me By Your Name)'?", answer: "Montero" },
+            { question: "Which 2018 album by Post Malone includes the hit single 'Rockstar'?", answer: "Beerbongs & Bentleys" },
+            { question: "What 2006 album by T-Pain features the hit single 'Buy U a Drank'?", answer: "Epiphany" },
+            { question: "Which 2017 album by Migos features the hit single 'Bad and Boujee'?", answer: "Culture" },
+            { question: "What 2019 album by DJ Khaled includes the hit single 'Higher'?", answer: "Father of Asahd" },
+            { question: "Which 2011 album by Wale features the hit single 'Lotus Flower Bomb'?", answer: "Ambition" },
+            { question: "What 2018 album by Travis Scott features the hit single 'SICKO MODE'?", answer: "Astroworld" },
+            { question: "Which 2015 album by Fetty Wap includes the hit singles 'Trap Queen' and '679'?", answer: "Fetty Wap" },
+            { question: "What 2014 album by Schoolboy Q features the hit single 'Studio'?", answer: "Oxymoron" },
+            { question: "Which 2013 album by Drake features the hit single 'Started from the Bottom'?", answer: "Nothing Was the Same" },
+            { question: "What 2020 album by Juice WRLD features the hit single 'Come & Go'?", answer: "Legends Never Die" },
+            { question: "Which 2019 album by Lil Peep features the hit single 'Falling Down'?", answer: "Everybody's Everything" },
+            { question: "What 2004 album by Ludacris features the hit single 'Splash Waterfalls'?", answer: "The Red Light District" },
+            { question: "Which 2010 album by Nicki Minaj features the hit single 'Super Bass'?", answer: "Pink Friday" },
+            { question: "What 2018 album by J. Cole features the hit single 'KOD'?", answer: "KOD" },
+            { question: "Which 2016 album by A Tribe Called Quest features the hit single 'We the People'?", answer: "We Got It from Here... Thank You 4 Your Service" },
+            { question: "What 2021 album by Lil Durk includes the hit single 'Back in Blood'?", answer: "The Voice" },
+            { question: "Which 2019 album by Young Thug features the hit single 'Hot'?", answer: "So Much Fun" },
+            { question: "What 2022 album by Kendrick Lamar features the hit single 'N95'?", answer: "Mr. Morale & The Big Steppers" },
+            { question: "Which 2021 album by Pop Smoke features the hit single 'What You Know Bout Love'?", answer: "Shoot for the Stars Aim for the Moon" },
+            { question: "What 2020 album by Lil Uzi Vert features the hit single 'P2'?", answer: "Eternal Atake" }
+        ];
+
+        let shuffledQuestions = [];
+        let questionIndex = 0;
+
+        // Shuffle the questions array
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // Initialize questions
+        function initializeQuestions() {
+            shuffledQuestions = shuffleArray([...hipHopRapQuestions]);
+            questionIndex = 0;
+            displayQuestion();
+        }
+
+        // Function to display the current question
+        function displayQuestion() {
+            if (shuffledQuestions.length === 0) {
+                questionAnswerDiv.innerHTML = "<strong>No more questions!</strong>";
+                return;
+            }
+            const currentQA = shuffledQuestions[questionIndex];
+            questionAnswerDiv.innerHTML = `<strong>Question:</strong> ${currentQA.question}<br><strong>Answer:</strong> ${currentQA.answer}`;
+        }
+
+        // Bounce animation on click
+        yellowBox.addEventListener("click", () => {
+            yellowBox.classList.add("animate-bounce");
+            setTimeout(() => {
+                yellowBox.classList.remove("animate-bounce");
+            }, 300);
+            questionIndex = (questionIndex + 1) % shuffledQuestions.length;
+            displayQuestion();
+        });
+
+        // Initialize the quiz
+        initializeQuestions();
+    </script>
+
+</body>
+</html>
